@@ -39,12 +39,12 @@ http://ryanfait.com/
  */
 .cf:before,
 .cf:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
+  content: " "; /* 1 */
+  display: table; /* 2 */
 }
 
 .cf:after {
-    clear: both;
+  clear: both;
 }
 
 /**
@@ -52,23 +52,23 @@ http://ryanfait.com/
  * Include this rule to trigger hasLayout and contain floats.
  */
 .cf {
-    *zoom: 1;
+  *zoom: 1;
 }
 
 /*=============*/
 
 body {
-    position: relative;
-    margin: 0 auto;
-    color: #333;
+  position: relative;
+  margin: 0 auto;
+  color: #333;
 }
 
 body, textarea, pre, input {
-    background-color: #FBFBFB;
-    font-family: 'Lato', Helvetica, Arial, sans-serif;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 1.8em;
+  background-color: #FBFBFB;
+  font-family: 'Lato', Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.8em;
 }
 
 textarea {
@@ -81,20 +81,13 @@ textarea:focus {
 }
 
 .main-title {
-    display: block;
-    color: #333;
-    font-size: 40px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 30px;
-    text-decoration: none;
-}
-
-.post-date {
-    position: absolute;
-    right: 0px;
-    bottom: 0px;
-    color: #888;
+  display: block;
+  color: #333;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+  text-decoration: none;
 }
 
 .post {
@@ -102,16 +95,48 @@ textarea:focus {
   margin: 0 auto;
 }
 
-.post-heading {
+.front-post-heading {
   position: relative;
   border-bottom: 2px solid #777;
 }
 
-.post-title {
+.front-post-title {
   font-size: 24px;
   font-weight: bold;
   color: #333;
   text-decoration: none;
+}
+
+.front-post-date {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  color: #888;
+}
+
+.post-heading {
+  position: relative;
+  margin-bottom: 40px;
+  padding-bottom: 10px;
+}
+
+.post-title {
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.post-title a {
+  color: #333;
+  text-decoration: none;
+}
+
+.post-date {
+  text-align: center;
+  font-size: 14px;
+  font-weight: normal;
+  color: #555;
 }
 
 .post-content {
@@ -119,7 +144,7 @@ textarea:focus {
 }
 
 .post-content pre {
-  font-weight: 600;
+  font-size: 20px;
 }
 
 .wrapper {

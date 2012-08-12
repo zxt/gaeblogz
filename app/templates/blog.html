@@ -7,9 +7,9 @@
 
     {% for post in blog_posts %}
       <div class="post">
-        <div class="post-heading">
-          <a href="/{{post.key().id()}}" class="post-title">{{post.subject}}</a>
-          <div class="post-date">
+        <div class="front-post-heading">
+          <a href="/{{post.key().id()}}" class="front-post-title">{{post.subject}}</a>
+          <div class="front-post-date">
             {{post.created_time.strftime("%b %d, %Y")}}
           </div>
         </div>
