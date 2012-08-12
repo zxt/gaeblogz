@@ -14,7 +14,7 @@
           </div>
         </div>
         <div class="post-content">
-          <pre>{{post.content}}</pre>
+          {{post.content|safe}}
         </div>
       </div>
     {% endfor %}

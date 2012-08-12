@@ -6,6 +6,7 @@ from google.appengine.api import users
 from google.appengine.api import memcache
 
 from models import *
+import utils
 
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir),
@@ -28,7 +29,9 @@ class BaseHandler(webapp2.RequestHandler):
 
 class BlogHandler(BaseHandler):
     def get(self):
-        posts = get_published_posts()
+        posts = list(get_published_posts())
+        for p in posts:
+            p.content = utils.md_to_html(p.content)
         self.render("blog.html",
                      blog_posts=posts)
 
@@ -39,6 +42,7 @@ class PostHandler(BaseHandler):
             self.error(404)
         else:
             memcache.set("post_"+post_id, post)
+            post.content = utils.md_to_html(post.content)
             self.render("post.html",
                          post=post)
 
@@ -46,7 +50,7 @@ class NewHandler(BaseHandler):
     def render_page(self, subject="", content="", draft=False, error=""):
         self.render("newpost.html",
                     subject=subject,
-                    content=content,
+                    content=utils.md_to_html(content),
                     draft=draft,
                     error=error)
 

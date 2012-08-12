@@ -15,9 +15,12 @@
 # limitations under the License.
 #
 import webapp2
+import sys
 import os
 
 from app.routes import routes
+
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'lib'))
 
 config = {}
 
