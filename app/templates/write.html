@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block head %} 
+  {{ super() }}
+  <script src="/js/jquery.autosize.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      $('textarea').autosize();
+    });
+  </script>
+{% endblock head %}
+
+{% block content %}
+  <div class="wrapper">
+    <form id="newpost" method="post">
+      <div class="error">{{error}}</div>
+      <div id="post-title">
+        <textarea cols="40" rows="1" name="subject" id="subject" placeholder="Put your title here">{{subject}}</textarea>
+      </div>
+      <div id="post-body">
+        <textarea cols="40" rows="15" name="content" id="content" placeholder="Write your post here">{{content}}</textarea>
+      </div>
+      <div class="push"></div>
+    </form>
+  </div>
+  <div class="footer">
+    <a href="/admin" id="backbutton" class="adminbutton adminlink"><span>&lt;&lt;&nbsp;Admin</span></a>
+    <div id="draft-box">
+      <label for="draft-checkbox">draft</label>
+      <input type="checkbox" name="draft-checkbox" id="draft-checkbox" form="newpost" {{'checked' if draft}}>
+    </div>
+    <input id="savebutton" class="adminbutton" form="newpost" type="submit" value="Save">
+  </div>
+{% endblock content %}

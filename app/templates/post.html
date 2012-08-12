@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}{{post.subject}} - YAGAEB{% endblock title %}
+
+{% block content %}
+    <a href="/" class="main-title">Blog</a>
+
+    <div class="post">
+      <div class="post-heading">
+        <a href="/{{post.key().id()}}" class="post-title">{{post.subject}}</a>
+        <div class="post-date">
+          {{post.created_time.strftime("%b %d, %Y")}}
+        </div>
+      </div>
+      <div class="post-content">
+        <pre>{{post.content}}</pre>
+      </div>
+    </div>
+{% endblock content %}

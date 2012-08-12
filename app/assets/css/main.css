@@ -1,0 +1,272 @@
+/*=============*/
+* {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -80px; /* the bottom margin is the negative value of the footer's height */
+}
+
+.footer, .push {
+  height: 80px; /* .push must be the same height as .footer*/
+}
+
+/*
+
+Sticky Footer by Ryan Fait
+http://ryanfait.com/
+
+*/
+
+/*=============*/
+
+/*http://nicolasgallagher.com/micro-clearfix-hack/
+/**
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    contenteditable attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that are clearfixed.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+    *zoom: 1;
+}
+
+/*=============*/
+
+body {
+    position: relative;
+    margin: 0 auto;
+    color: #333;
+}
+
+body, textarea, pre, input {
+    background-color: #FBFBFB;
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.8em;
+}
+
+textarea {
+  border-style: none;
+  width: 100%;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+.main-title {
+    display: block;
+    color: #333;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+    text-decoration: none;
+}
+
+.post-date {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    color: #888;
+}
+
+.post {
+  width: 960px;
+  margin: 0 auto;
+}
+
+.post-heading {
+  position: relative;
+  border-bottom: 2px solid #777;
+}
+
+.post-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+}
+
+.post-content {
+  margin-top: 5px;
+}
+
+.post-content pre {
+  font-weight: 600;
+}
+
+.wrapper {
+  width: 960px;
+}
+
+.footer {
+  background-color: #444;
+}
+
+.drafts {
+  float: left;  
+  width: 450px;
+  margin-bottom: 100px;
+}
+
+.published {
+  float: right;
+  width: 450px;
+  margin-bottom: 100px;
+}
+
+.admin-post {
+  position: relative;
+  border-bottom: 2px solid #777;
+  padding: 4px 0;
+}
+
+.admin-post:hover {
+  background-color: #eee;
+}
+
+.admin-post a {
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+
+.admin-post a:hover {
+  text-decoration: underline;
+}
+
+.admin-header {
+  display: inline-block;
+  font-size: 26px;
+  border-bottom: 2px dotted #333;
+}
+
+.title {
+  font-size: 18px;
+  display: inline-block;
+  width: 370px;
+}
+
+.hover {
+  display: none;
+  font-size: 14px;
+  float: right;
+  margin-right: 15px;
+}
+
+#post-title {
+  position: relative;
+  width: 100%;
+}
+
+#post-body {
+  margin-top: 5px;
+}
+
+#subject {
+  font-size: 36px;
+  font-weight: 900;
+}
+
+.adminbutton {
+  background-color: #222;
+  color: #eee;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  position: relative;
+  width: 104px;
+  height: 52px;
+}
+
+.adminbutton:hover {
+  background-color: red;
+}
+
+#savebutton {
+  width: 72x;
+  top: 18px;
+  left: 50%;
+}
+
+.adminlink {
+  display: inline-block;
+  text-decoration: none;
+  line-height: 44px;
+  padding: 4px 12px;
+  width: 80px;
+  height: 44px;
+  top: 18px;
+}
+
+.adminlink span {
+  display: inline-block;
+  width: 80px;
+  text-align: center;
+}
+
+.page_nav {
+  display: inline-block;
+  text-decoration: none;
+  top: 10px;
+  padding: 4px 12px;
+  width: 60px;
+  height: 30px;
+  line-height: 30px;
+}
+
+#newpostbutton {
+  left: 50%;
+}
+
+#backbutton {
+  left: 35%;
+}
+
+#draft-box {
+  display: inline-block;
+  position: relative;
+  width: 100px;
+  top: 18px;
+  left: 50%;
+}
+
+#draft-box label {
+  color: #eee;
+  font-size: 24px;
+  margin-right: 5px;
+}
+
+.error {
+    color: red;
+}
