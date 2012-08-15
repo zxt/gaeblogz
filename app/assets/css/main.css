@@ -295,3 +295,19 @@ textarea:focus {
 .error {
     color: red;
 }
+
+.nav-link {
+  display: block;
+  text-align:center;
+}
+
+.nav-link a {
+  color: #333;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-link a:hover {
+  color: #FBFBFB;
+  background-color: #333;
+}
