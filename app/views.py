@@ -62,11 +62,16 @@ class NewHandler(BaseHandler):
 
     def post(self):
         subject = self.request.get("subject")
+        slug = utils.unique_slugify(" ".join(subject.split()[:10]),
+                                    get_all_slugs())
         content = self.request.get("content")
         draft = True if self.request.get("draft-checkbox") else False
 
         if subject:
-            post = Post(subject=subject, content=content, draft=draft)
+            post = Post(subject=subject,
+                        slug=slug,
+                        content=content,
+                        draft=draft)
             post.put()
             memcache.delete("posts")
             self.redirect('/%d' % post.key().id())
