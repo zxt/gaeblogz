@@ -36,12 +36,13 @@ class BlogHandler(BaseHandler):
                      blog_posts=posts)
 
 class PostHandler(BaseHandler):
-    def get(self, post_id):
-        post = memcache.get("post_"+post_id) or Post.get_by_id(int(post_id))
+    def get(self, slug):
+        post = memcache.get("post_"+slug) or \
+               Post.gql("WHERE slug = :1", slug).get()
         if post is None:
             self.error(404)
         else:
-            memcache.set("post_"+post_id, post)
+            memcache.set("post_"+slug, post)
             post.content = utils.md_to_html(post.content)
             self.render("post.html",
                          post=post)
@@ -74,12 +75,13 @@ class NewHandler(BaseHandler):
                         draft=draft)
             post.put()
             memcache.delete("posts")
-            self.redirect('/%d' % post.key().id())
+            self.redirect('/%s' % post.slug)
         else:
             error = "Your post needs title!"
             self.render_page(subject, content, draft, error)
 
 class EditHandler(BaseHandler):
+    #TODO: update memcache keys, which need to be using the slug not post_id now
     def render_page(self, subject="", content="",
                     draft=False, error=""):
         self.render("edit.html",
@@ -110,9 +112,9 @@ class EditHandler(BaseHandler):
             post.content = content
             post.draft = draft
             post.put()
-            memcache.set("post_"+post_id, post)
+            memcache.set("post_"+post.slug, post)
             memcache.delete("posts")
-            self.redirect('/%d' % int(post_id))
+            self.redirect('/%s' % post.slug)
         else:
             error = "Your post needs a title!"
             self.render_page(subject, content, draft, error)
