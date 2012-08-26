@@ -207,10 +207,12 @@ a.nav-link:hover {
 .admin-post a {
   font-weight: bold;
   text-decoration: none;
+  color: #333;
 }
 
 .admin-post a:hover {
   text-decoration: underline;
+  background-color: inherit;
 }
 
 .admin-header {
@@ -250,6 +252,7 @@ a.nav-link:hover {
   background-color: #222;
   color: #eee;
   border: none;
+  font-family: 'Lato', Helvetica, Arial, sans-serif;
   font-size: 18px;
   font-weight: bold;
   -webkit-border-radius: 5px;
