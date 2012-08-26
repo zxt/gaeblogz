@@ -86,12 +86,17 @@ textarea:focus {
 }
 
 a {
-  color: #333;
+  color: #0B61A4;
 }
 
 a:hover {
   background-color: #0B61A4;
   color: #eee;
+}
+
+a.nav-link:hover {
+  background-color: #FBFBFB;
+  color: #0B61A4;
 }
 
 #topbar {
@@ -147,6 +152,7 @@ a:hover {
 
 .post-title a {
   text-decoration: none;
+  color: #333;
 }
 
 .post-date {
@@ -313,17 +319,17 @@ a:hover {
     color: red;
 }
 
-.nav-link {
+.footer-link {
   display: block;
   text-align:center;
 }
 
-.nav-link a {
+.footer-link a {
   font-size: 24px;
   font-weight: bold;
 }
 
-.nav-link a:hover {
+.footer-link a:hover {
   background-color: #66A3D2;
   color: #eee;
 }

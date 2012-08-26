@@ -6,7 +6,7 @@
     <div class="post">
       <div class="post-heading">
         <div class="post-title">
-          <a href="/{{post.key().id()}}">{{post.subject}}</a>
+          <a class="nav-link" href="/{{post.key().id()}}">{{post.subject}}</a>
           <span class="post-date">
             {{post.created_time.strftime("%b %d, %Y")}}
           </span>
@@ -15,6 +15,6 @@
       <div class="post-content">
         {{post.content|safe}}
       </div>
-      <span class="nav-link"><a href="/">Back to home</a></span>
+      <span class="footer-link"><a href="/">Back to home</a></span>
     </div>
 {% endblock content %}

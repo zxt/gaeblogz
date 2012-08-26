@@ -3,12 +3,12 @@
 {% block title %}YAGAEB{% endblock title %}
 
 {% block content %}
-    <a href="/" class="main-title">Blog</a>
+    <a href="/" class="main-title nav-link">Blog</a>
 
     {% for post in blog_posts %}
       <div class="post">
         <div class="front-post-heading">
-          <a href="/{{post.slug}}" class="front-post-title">{{post.subject}}</a>
+          <a href="/{{post.slug}}" class="front-post-title nav-link">{{post.subject}}</a>
           <div class="front-post-date">
             {{post.created_time.strftime("%b %d, %Y")}}
           </div>
