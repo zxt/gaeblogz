@@ -70,8 +70,8 @@ body {
 
 body, textarea, pre, input {
   background-color: #FBFBFB;
-  font-family: 'Lato', Helvetica, Arial, sans-serif;
-  font-size: 18px;
+  font-family: Verdana, Helvetica, Arial, sans-serif;
+  font-size: 14px;
   font-weight: 400;
   line-height: 1.8em;
 }
@@ -92,6 +92,10 @@ a {
 a:hover {
   background-color: #0B61A4;
   color: #eee;
+}
+
+a.nav-link {
+  font-family: 'Lato', Helvetica, Arial, sans-serif;
 }
 
 a.nav-link:hover {
@@ -139,7 +143,7 @@ a.nav-link:hover {
 
 .post-heading {
   position: relative;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   padding-bottom: 10px;
 }
 
@@ -179,7 +183,7 @@ a.nav-link:hover {
 }
 
 .drafts {
-  float: left;  
+  float: left;
   width: 450px;
   margin-bottom: 100px;
 }
