@@ -29,7 +29,7 @@ class BaseHandler(webapp2.RequestHandler):
 
 class BlogHandler(BaseHandler):
     def get(self):
-        posts = list(get_published_posts())
+        posts = get_published_posts()
         for p in posts:
             p.content = utils.md_to_html(p.content)
         self.render("blog.html",
@@ -146,7 +146,7 @@ class AdminHandler(BaseHandler):
 
         prev_draft_page = draft_page - 1
         ndp = get_draft_posts((draft_page+1)*limit, limit)
-        if list(ndp):
+        if ndp:
             next_draft_page = draft_page + 1
         else:
             next_draft_page = -1
@@ -157,7 +157,7 @@ class AdminHandler(BaseHandler):
 
         prev_pub_page = pub_page - 1
         npp = get_published_posts((pub_page+1)*limit, limit)
-        if list(npp):
+        if npp:
             next_pub_page = pub_page + 1
         else:
             next_pub_page = -1

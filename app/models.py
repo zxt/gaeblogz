@@ -8,14 +8,13 @@ class Post(db.Model):
     created_time = db.DateTimeProperty(auto_now_add=True)
     draft = db.BooleanProperty(default=False)
 
-# TODO: use memcached
 def get_draft_posts(offset=0, limit=None):
     q = db.Query(Post)
-    return q.filter('draft', True).order('-created_time').run(offset=offset, limit=limit)
+    return list(q.filter('draft', True).order('-created_time').run(offset=offset, limit=limit))
 
 def get_published_posts(offset=0, limit=None):
     q = db.Query(Post)
-    return q.filter('draft', False).order('-created_time').run(offset=offset, limit=limit)
+    return list(q.filter('draft', False).order('-created_time').run(offset=offset, limit=limit))
 
 def get_all_posts(offset=0, limit=None):
     q = db.Query(Post)
