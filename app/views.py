@@ -108,7 +108,7 @@ class EditHandler(BaseHandler):
         draft = True if self.request.get("draft-checkbox") else False
 
         if subject:
-            post = Post.qgl("WHERE slug = :1", slug).get()
+            post = Post.gql("WHERE slug = :1", slug).get()
             post.subject = subject
             post.content = content
             post.draft = draft
