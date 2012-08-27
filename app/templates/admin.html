@@ -24,16 +24,16 @@
       <h1 class="admin-header">Drafts</h1>
     {% for post in drafts %}
       <div class="admin-post">
-        <a class="title" href="/edit/{{post.key().id()}}">{{post.subject}}</a>
+        <a class="title" href="/edit/{{post.slug}}">{{post.subject}}</a>
         <a class="hover" href="">x</a>
         <a class="hover" href="/{{post.key().id()}}">view</a>
       </div>
     {% endfor %}
       {% if prev_draft_page >= 0 %}
-      <a class="adminbutton page_nav" href="/admin?draft_page={{prev_draft_page}}&pub_page={{prev_pub_page + 1}}">&lt;- prev</a>
+      <a class="adminbutton page_nav" href="/admin?draft_page={{prev_draft_page}}&pub_page={{prev_pub_page + 1}}">← prev</a>
       {% endif %}
       {% if next_draft_page > 0 %}
-      <a class="adminbutton page_nav" href="/admin?draft_page={{next_draft_page}}&pub_page={{prev_pub_page + 1}}">next -&gt;</a>
+      <a class="adminbutton page_nav" href="/admin?draft_page={{next_draft_page}}&pub_page={{prev_pub_page + 1}}">next →</a>
       {% endif %}
     <div class="push"></div>
     </div>
@@ -41,22 +41,22 @@
       <h1 class="admin-header">Published</h1>
     {% for post in published %}
       <div class="admin-post">
-        <a class="title" href="/edit/{{post.key().id()}}">{{post.subject}}</a>
+        <a class="title" href="/edit/{{post.slug}}">{{post.subject}}</a>
         <a class="hover" href="">x</a>
         <a class="hover" href="/{{post.key().id()}}">view</a>
       </div>
     {% endfor %}
       {% if prev_pub_page >= 0 %}
-      <a class="adminbutton page_nav" href="/admin?draft_page={{prev_draft_page + 1}}&pub_page={{prev_pub_page}}">&lt;- prev</a>
+      <a class="adminbutton page_nav" href="/admin?draft_page={{prev_draft_page + 1}}&pub_page={{prev_pub_page}}">← prev</a>
       {% endif %}
       {% if next_pub_page > 0 %}
-      <a class="adminbutton page_nav" href="/admin?draft_page={{prev_draft_page + 1}}&pub_page={{next_pub_page}}">next -&gt;</a>
+      <a class="adminbutton page_nav" href="/admin?draft_page={{prev_draft_page + 1}}&pub_page={{next_pub_page}}">next →</a>
       {% endif %}
     <div class="push"></div>
     </div>
   </div>
   <div class="footer">
-    <a href="/" id="backbutton" class="adminbutton adminlink"><span>&lt;&lt;&nbsp;Blog</span></a>
+    <a href="/" id="backbutton" class="adminbutton adminlink"><span>←&nbsp;Blog</span></a>
     <a href="/new" id="newpostbutton" class="adminbutton adminlink"><span>New</span></a>
   </div>
 {% endblock content %}

@@ -81,7 +81,6 @@ class NewHandler(BaseHandler):
             self.render_page(subject, content, draft, error)
 
 class EditHandler(BaseHandler):
-    #TODO: update memcache keys, which need to be using the slug not post_id now
     def render_page(self, subject="", content="",
                     draft=False, error=""):
         self.render("edit.html",
@@ -90,24 +89,25 @@ class EditHandler(BaseHandler):
                      draft=draft,
                      error=error)
 
-    def get(self, post_id):
-        post = memcache.get("post_"+post_id) or Post.get_by_id(int(post_id))
+    def get(self, slug):
+        post = memcache.get("post_"+slug) or \
+               Post.gql("WHERE slug = :1", slug).get()
         if post is None:
             self.error(404)
         else:
-            memcache.set("post_"+post_id, post)
+            memcache.set("post_"+slug, post)
             subject = post.subject
             content = post.content
             draft = post.draft
             self.render_page(subject, content, draft)
 
-    def post(self, post_id):
+    def post(self, slug):
         subject = self.request.get("subject")
         content = self.request.get("content")
         draft = True if self.request.get("draft-checkbox") else False
 
         if subject:
-            post = Post.get_by_id(int(post_id))
+            post = Post.qgl("WHERE slug = :1", slug).get()
             post.subject = subject
             post.content = content
             post.draft = draft
