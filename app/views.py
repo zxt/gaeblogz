@@ -13,10 +13,11 @@ jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir),
                               autoescape=True)
 
 class BaseHandler(webapp2.RequestHandler):
-    def error(self, code):
+    def error(self, code, page):
         super(BaseHandler, self).error(code)
         if code == 404:
-            self.response.out.write("404 ERROR") # TODO: output an actual 404 page
+            self.render("404.html",
+                         page=page)
     def write(self, *a, **kw):
         self.response.out.write(*a, **kw)
 
@@ -40,7 +41,7 @@ class PostHandler(BaseHandler):
         post = memcache.get("post_"+slug) or \
                Post.gql("WHERE slug = :1", slug).get()
         if post is None:
-            self.error(404)
+            self.error(404, slug)
         else:
             memcache.set("post_"+slug, post)
             post.content = utils.md_to_html(post.content)
@@ -93,7 +94,7 @@ class EditHandler(BaseHandler):
         post = memcache.get("post_"+slug) or \
                Post.gql("WHERE slug = :1", slug).get()
         if post is None:
-            self.error(404)
+            self.error(404, slug)
         else:
             memcache.set("post_"+slug, post)
             subject = post.subject
