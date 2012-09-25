@@ -7,6 +7,7 @@
       <a href="/" class="main-title nav-link">My GAE Blog</a>
     </div>
 
+  <div id="container">
     {% for post in blog_posts %}
       <div class="post">
         <div class="front-post-heading">
@@ -20,4 +21,10 @@
         </div>
       </div>
     {% endfor %}
+  </div>
 {% endblock content %}
+{% block footer %}
+  <div id="footer">
+    © <a href="//www.zhaotang.ca">Zhao Tang</a>
+  </div>
+{% endblock footer  %}

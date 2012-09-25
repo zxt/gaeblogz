@@ -59,7 +59,7 @@ http://ryanfait.com/
 
 ::selection {
   background: #66A3D2;
-  color: #eee;
+  color: #F2F2F2;
 }
 
 body {
@@ -69,7 +69,7 @@ body {
 }
 
 body, textarea, pre, input {
-  background-color: #FBFBFB;
+  background-color: #F2F2F2;
   font-family: Verdana, Helvetica, Arial, sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -91,7 +91,7 @@ a {
 
 a:hover {
   background-color: #0B61A4;
-  color: #eee;
+  color: #F2F2F2;
 }
 
 a.nav-link {
@@ -99,8 +99,16 @@ a.nav-link {
 }
 
 a.nav-link:hover {
-  background-color: #FBFBFB;
+  background: none;
   color: #0B61A4;
+}
+
+#container {
+  width: 960px;
+  margin: 0 auto;
+  -webkit-box-shadow: 8px 8px 6px -2px #888; /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  box-shadow: 8px 8px 6px -2px #888; /* Opera 10.5, IE9+, Firefox 4+, Chrome 6+, iOS 5 */
+  background-color: #FBFBFB;
 }
 
 #topbar {
@@ -110,6 +118,10 @@ a.nav-link:hover {
 .top-nav {
   text-align:center;
   margin: 30px 0;
+}
+
+#footer {
+  text-align: center;
 }
 
 .main-title {
